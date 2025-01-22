@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8889:8888"
+    volumes:
+      - ./notebooks:/root/notebooks
+      - ./data:/root/data
+      - ./src:/root/src
+    command: "start-notebook.py --NotebookApp.token='my-token'" 
