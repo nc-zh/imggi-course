@@ -9,4 +9,6 @@ services:
       - ./notebooks:/root/notebooks
       - ./data:/root/data
       - ./src:/root/src
-    command: "start-notebook.py --NotebookApp.token='my-token'" 
+    environment:
+      - JUPYTER_PORT=8889
+    command: "start.sh jupyter lab --LabApp.token='' --ServerApp.base_url='/' --ServerApp.port=8888 --ServerApp.allow_origin='*' --ServerApp.ip='0.0.0.0' --ServerApp.port_retries=0 --ServerApp.custom_display_url=http://127.0.0.1:8889" 
